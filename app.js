@@ -60,5 +60,35 @@ function reiniciar() {
         `Números sorteados: ${sorteados.join(', ')}` +
         '</label>';
         
-    
+    const botaoReiniciar =
+        document.getElementById('botao-reiniciar');
+    botaoReiniciar.disabled = false;
+    botaoReiniciar.classList.remove(
+    'container__botao-desabilitado'
+);
+botaoReiniciar.classList.add('container__botao');
+
+function reiniciar() {
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML =
+        '<label class="texto__paragrafo">' +
+        'Números sorteados: nenhum até agora' +
+        '</label>';
+
+    const botaoReiniciar =
+        document.getElementById('btn-reiniciar');
+    botaoReiniciar.disabled = true;
+    botaoReiniciar.classList.remove('container__botao');
+    botaoReiniciar.classList.add(
+        'container__botao-desabilitado'
+    );
+
+    document.getElementById('quantidade').focus();
+}
+
+
 
