@@ -1,5 +1,12 @@
 function sortear() {
-    // --- Leitura dos campos ---
+    // leitura, validação, sorteio e exibição
+}
+
+function reiniciar() {
+    // restauração do estado inicial
+}
+
+
     const campoQuantidade = document.getElementById('quantidade');
     const campoInicio = document.getElementById('de');
     const campoFim = document.getElementById('ate');
@@ -27,15 +34,31 @@ function sortear() {
         return;
     }
  
-    // --- Validação: início e fim ---
     if (!Number.isInteger(inicio) || !Number.isInteger(fim) ||
         inicio < 1 || fim < 1) {
         alert('O início e o fim devem ser números inteiros maiores que zero.');
         return;
     }
  
-    // --- Validação: ordem do intervalo ---
     if (inicio > fim) {
         alert('O valor inicial não pode ser maior que o valor final.');
         return;
     }
+
+    const sorteados = [];
+ 
+    for (let i = 0; i < quantidade; i++) {
+        const numero = Math.floor(
+            Math.random() * (fim - inicio + 1)
+        ) + inicio;
+        sorteados.push(numero);
+    }
+ 
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML =
+        '<label class="texto__paragrafo">' +
+        `Números sorteados: ${sorteados.join(', ')}` +
+        '</label>';
+        
+    
+
